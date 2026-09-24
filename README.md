@@ -1,13 +1,24 @@
 # Casa Letizia
 
 Bilingual (Hebrew / English) landing page for Casa Letizia, Bagni di Lucca.
-Vite + TypeScript, no framework. Deploys to GitHub Pages via Actions.
+Vite + TypeScript, no framework. Served by a Cloudflare Worker with static assets.
 
 ```bash
 npm install
 npm run dev      # local dev server
 npm run build    # type-check + production build into dist/
+npm run deploy   # build + wrangler deploy to the bagnidilucca Worker
 ```
+
+## Deploy
+
+`wrangler.jsonc` targets the existing Worker `bagnidilucca` in the
+sampsonecommerce@gmail.com Cloudflare account. my-tuscany-home.com is attached
+to that Worker as a custom domain, so a deploy replaces the site with no DNS change.
+
+- Manual: `npx wrangler login` (that account), then `npm run deploy`.
+- Automatic: the GitHub Actions workflow deploys on every push to `main` once the
+  repo secret `CLOUDFLARE_API_TOKEN` exists (Workers Scripts: Edit permission).
 
 ## Where things live
 

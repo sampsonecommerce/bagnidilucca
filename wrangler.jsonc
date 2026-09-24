@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Existing Worker in the sampsonecommerce@gmail.com Cloudflare account.
+  // my-tuscany-home.com is attached to it as a custom domain, so deploying
+  // under this name replaces the site without touching DNS.
+  "name": "bagnidilucca",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "single-page-application"
+  }
+}
